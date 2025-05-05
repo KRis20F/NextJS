@@ -3,7 +3,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "node node_modules/bcrypt/node_modules/node-pre-gyp/bin/node-pre-gyp rebuild"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -27,5 +28,8 @@
     "@types/node": "22.10.7",
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
