@@ -6,4 +6,5 @@ export const lusitana = Lusitana({
   weight: ['400', '700'],
   subsets: ['latin'],
   display: 'swap',
+  preload: true,
 });
