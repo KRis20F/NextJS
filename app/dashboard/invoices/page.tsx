@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   title: 'Invoices',
 };
 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams?: { query?: string; page?: string };
-}) {
-  const query = searchParams?.query || '';
-  const currentPage = Number(searchParams?.page) || 1;
+type Props = {
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+export default async function Page({ searchParams = {} }: Props) {
+  const query = typeof searchParams.query === 'string' ? searchParams.query : '';
+  const currentPage = typeof searchParams.page === 'string' ? Number(searchParams.page) : 1;
   const totalPages = await fetchInvoicesPages(query);
 
   return (

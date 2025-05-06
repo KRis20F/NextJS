@@ -8,9 +8,14 @@ export const metadata: Metadata = {
   title: 'Edit Invoice',
 };
 
-export default async function Page({ params }: {
-  params: { id: string }
-}) {
+type Props = {
+  params: {
+    id: string;
+  };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default async function Page({ params }: Props) {
   const id = params.id;
   const [invoice, customers] = await Promise.all([
     fetchInvoiceById(id),
